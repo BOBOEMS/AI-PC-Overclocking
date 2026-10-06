@@ -1,0 +1,31 @@
+{
+  "session": "co-sweet-core2-7-20261001",
+  "op": "sweep",
+  "rycolabExe": "C:\\Users\\BOBO\\AppData\\Local\\rycolab\\bin\\rycolab.exe",
+  "rycolabArgs": [
+    "dev",
+    "sweep",
+    "--cores",
+    "2-7",
+    "--start",
+    "-20",
+    "--top",
+    "-10",
+    "--step",
+    "5",
+    "--seconds",
+    "180",
+    "--campaign",
+    "co-sweet-20261001-c2-7",
+    "--plain"
+  ],
+  "ryzenSmuCli": "C:\\bobo_worktool\\ryzen-smu-cli\\ryzen-smu-cli.exe",
+  "streamIntervalMs": 500,
+  "noStream": true,
+  "hwinfo": true,
+  "perCore": false,
+  "perCoreTargets": "0:0,0:1",
+  "sensorSource": "hwinfo-shm",
+  "coreList": "2-7",
+  "writtenAt": "2026-10-01T18:41:42.636458+09:00"
+}

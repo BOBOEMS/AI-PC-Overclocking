@@ -1,0 +1,91 @@
+# =============================================================================
+# What is tracked, and why
+# =============================================================================
+#   src/       source code                       -> tracked
+#   config/    job/operation parameters          -> tracked
+#   docs/      documentation                     -> tracked
+#   artifacts/ EVERYTHING generated              -> ignored (this file)
+#
+# Rule of thumb: if a file is produced by running the toolkit it belongs under
+# artifacts/ and is ignored. If a human wrote it and someone else would need it,
+# it belongs under src/, config/ or docs/ and is tracked.
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Generated output: logs, session evidence, sensor samples.
+# This is the bulk of the tree and pure noise for anyone cloning - the session
+# directories alone reached 453 MB on the machine this was organised on.
+# -----------------------------------------------------------------------------
+artifacts/
+# Legacy output locations, kept ignored so an older checkout does not suddenly
+# start staging hundreds of megabytes of logs.
+runs/
+watchdog_sessions/
+task_logs/
+
+# -----------------------------------------------------------------------------
+# Personal data: photos of BIOS pages. They document one specific board's
+# settings and are of no use to another user, so they are not published. The
+# findings that matter are written up in docs/ and in the result documents under
+# artifacts/runs/.
+# -----------------------------------------------------------------------------
+bios_photo/
+*.bmp
+
+# -----------------------------------------------------------------------------
+# Machine-specific configuration. Tool locations differ per machine; keeping them
+# out of the repository is what lets it be cloned and used anywhere.
+#
+# Put your own values in ONE of:
+#   %APPDATA%\overclock-toolkit\paths.json     (recommended; outside the repo)
+#   config/paths.local.json                    (checkout-local override)
+#
+# See docs/CONFIGURATION.md for the key names.
+# -----------------------------------------------------------------------------
+config/paths.local.json
+config/paths.json
+# Written at trigger time by the non-elevated side before `schtasks /run`.
+config/co_task_op.json
+
+# -----------------------------------------------------------------------------
+# Compiled helpers. memprobe.exe is built from src/bench/memprobe.c by whoever
+# needs it; shipping a binary would tie the repository to one compiler and one
+# machine.
+#   gcc -O2 -o artifacts/build/memprobe.exe src/bench/memprobe.c
+# -----------------------------------------------------------------------------
+*.exe
+*.dll
+*.obj
+*.o
+*.pdb
+
+# -----------------------------------------------------------------------------
+# Runtime state written while a run is in progress.
+# -----------------------------------------------------------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# -----------------------------------------------------------------------------
+# Editor / OS noise
+# -----------------------------------------------------------------------------
+.vscode/
+.commandcode/
+.idea/
+*.swp
+*~
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# -----------------------------------------------------------------------------
+# Local notes. AGENT.md is tracked on purpose (it is the collaboration protocol);
+# a personal scratch file is not.
+# -----------------------------------------------------------------------------
+notes.local.md
+*.local.json
+*.local.md

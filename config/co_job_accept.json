@@ -1,0 +1,18 @@
+{
+  "_note": "SHORT THROUGHPUT CHECK (180 s) RUN 3, same conditions as intended. Runs 1 and 2 gave 8.78 and 8.75 (0.3% apart) under BIOS -15 with Latency Killer disabled, versus 9.21 (19:43, SMU -15, Latency Killer off) and 7.93 (22:25, Latency Killer on). Run 3 checks whether ~8.76 is a stable plateau or drifts. CAVEAT: the machine rebooted at 23:53:01 before this run, and earlier reboots at 23:29:51 / 23:12:27 each followed a user BIOS visit whose exact changes were not screenshotted, so identical BIOS state is assumed rather than proven; the tRFC1=960 change and per-core CO -15 are both confirmed present by read-back each time.",
+  "session": "co-quickcheck-vt3-180s-r3-20261001",
+  "margin": -15,
+  "baseline": 0,
+  "tests": [
+    "VT3"
+  ],
+  "testDuration": 180,
+  "memory": "24G",
+  "ycruncherExe": "C:\\bobo_document\\tool\\BoostClock\\y-cruncher v0.8.5.9543\\y-cruncher.exe",
+  "heartbeatTimeoutSeconds": 30,
+  "cpuTempStop": 95,
+  "cpuTempEmergency": 100,
+  "dimmTempStop": 70,
+  "dimmTempEmergency": 75,
+  "tempStrikesRequired": 3
+}

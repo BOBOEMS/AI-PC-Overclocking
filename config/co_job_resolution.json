@@ -1,0 +1,15 @@
+{
+  "_note": "Resolution verification for the fork left by round 6. Round 6 found both cores passing at -25, the deepest margin searched, so -25 is the edge of the search rather than the cores' limit; but rounds 3-5 established that the offset stops changing the operating point around -20. This run answers whether the interval still has resolution BEFORE spending ~43 min/core going deeper. Load is SSE3 (04-P4P) because that is the engine that reaches fMax and therefore the band where the offset converts into frequency; AVX-512 clamps near 5.0 GHz and would hide the effect while adding ~12 C. Only the margin itself is written, and the run always resets all eight cores to 0 at the end. Triggered via tools\\task_launch.ps1 -Op resolution, which needs elevation for ryzen-smu-cli.",
+  "session": "co-resolution-core0-20261001",
+  "core": 0,
+  "margins": [0, -10, -20, -30],
+  "seconds": 120,
+  "cooldown": 30,
+  "engine": "04-P4P",
+  "test": "SFTv4",
+  "memoryMiB": 1024,
+  "cpuTempStop": 95,
+  "cpuTempEmergency": 100,
+  "dimmTempStop": 70,
+  "dimmTempEmergency": 75
+}
